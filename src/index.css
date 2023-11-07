@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .custom-filter__btn {
-  @apply relative w-full min-w-[180px] flex justify-between items-center cursor-pointer rounded-md bg-white py-4 px-3 text-left shadow-sm sm:text-sm border;
+  @apply relative w-full min-w-[180px] flex justify-between items-center cursor-pointer rounded-md bg-white py-4 px-3 text-left shadow-sm sm:text-sm dark:dark:bg-[#2b3945] dark:text-gray-100;
 }
 
 .custom-filter__options {

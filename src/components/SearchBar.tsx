@@ -11,21 +11,26 @@ const SearchBar = ({setKey, setValue }: CustomFilterProps) => {
     const [filterValue, setFilterValue] = useState("")
 
     const handleChange = (e:any) => {
-        setValue(e.target.value);
-        setKey("name")
-    }
 
-    console.log(filterValue);
+        if(e.target.value !== "") {
+            setKey("name")
+            setValue(e.target.value);
+        } else { 
+            setKey("")
+            setValue("all");
+        }
+    }
 
     return (
         <div className='relative flex items-center'>
             <div className='absolute left-4'>
-                <HiMagnifyingGlass />
+                <HiMagnifyingGlass className="dark:text-gray-100" />
             </div>
             <input 
                 type="text" 
                 placeholder='Search for a country...' 
-                className='min-w-[26rem] py-3 px-10 border-2 shadow-sm rounded-md' 
+                className='min-w-[26rem] py-3 px-10 shadow-sm rounded-md 
+                dark:bg-[#2b3945] dark:text-white' 
                 value={filterValue}
                 onChange={(e) => {
                     setFilterValue(e.target.value)

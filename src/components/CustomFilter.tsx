@@ -34,14 +34,14 @@ const CustomFilter = ({ options, setValue, setKey }: CustomFilterProps) => {
                             leaveFrom='opacity-100'
                             leaveTo='opacity-0'
                         >
-                            <Listbox.Options className="custom-filter__options">
+                            <Listbox.Options className="custom-filter__options dark:bg-[#2b3945]">
                                 {options.map((option) => (
                                     <Listbox.Option
                                         key={option.id}
                                         value={option}
                                         className={({ active }) => `relative cursor-default select-none 
-                                        p-2 ${active ? 'bg-blue-500 text-white' :
-                                                'text-gray-900'}`}
+                                        p-2 ${active ? 'bg-blue-500 text-white dark:bg-blue-500' 
+                                        : 'text-gray-900'}dark:bg-[#2b3945] dark:text-white`}
                                      >
                                         {({ selected }) => (
                                             <span

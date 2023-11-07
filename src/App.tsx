@@ -8,8 +8,8 @@ import axios from "axios"
 
 function App() {
   const [countries, setCountries] = useState([])
-  const [key, setKey] = useState("region")
-  const [value, setValue] = useState("africa")
+  const [key, setKey] = useState("all")
+  const [value, setValue] = useState("")
 
   const fetchAllCountries = async (key: string, value: string) => {
     try {
@@ -29,18 +29,17 @@ function App() {
   },[key, value])
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="h-screen flex flex-col items-center bg-[#fafafa] dark:bg-[#202c37]">
       <Nav />
       <div className='max-w-[1440px] w-10/12 flex justify-between my-10 items-center'>
         <SearchBar setValue={setValue} setKey={setKey} />
         <CustomFilter options={options} setValue={setValue} setKey={setKey} />
       </div>
-      <div className='card-wrapper'>
+      <div className="card-wrapper" >
         {countries.map((country: { flags: { svg: string; }; name: { common: string; }; population: number; region: string; capital: string; }, index: number) =>
           <Cards country={country} key={index} />
         )}
       </div>
-
     </div>
   )
 }

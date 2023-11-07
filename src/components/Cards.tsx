@@ -5,7 +5,7 @@ const Cards = ({ country }: CountryProps) => {
     const { flags, name, population, region, capital } = country
 
     return (
-        <div className='bg-white shadow-md rounded-md flex flex-col'>
+        <div className='bg-white dark:bg-[#2b3945] dark:text-gray-100 shadow-md rounded-md flex flex-col'>
 
             <img src={flags.svg} alt='flag' width={0} height={0} className='w-full h-56 object-cover rounded-t-md' />
 
