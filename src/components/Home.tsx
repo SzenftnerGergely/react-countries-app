@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import SearchBar from './SearchBar';
 import CustomFilter from './CustomFilter';
@@ -37,7 +37,7 @@ const Home = () => {
       </div>
       <div className="card-wrapper" >
         {countries.map((country: { flags: { svg: string; }; name: { common: string; }; population: number; region: string; capital: string; }, index: number) =>
-          <Link to={`/selected/${country.name.common}`}>
+          <Link to={`/selected/${country.name.common}`} key={index}>
             <Cards country={country} key={index} />
           </Link>
         )}
