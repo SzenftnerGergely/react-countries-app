@@ -29,7 +29,7 @@ function App() {
   },[key, value])
 
   return (
-    <div className="h-screen flex flex-col items-center bg-[#fafafa] dark:bg-[#202c37]">
+    <div className="h-full flex flex-col items-center bg-[#fafafa] dark:bg-[#202c37]">
       <Nav />
       <div className='max-w-[1440px] w-10/12 flex justify-between my-10 items-center'>
         <SearchBar setValue={setValue} setKey={setKey} />
