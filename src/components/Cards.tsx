@@ -1,7 +1,6 @@
 import { CountryProps } from "../types/models"
 
-
-const Cards = ({ country }: CountryProps) => { 
+const Cards = ({ country }: CountryProps) => {
     const { flags, name, population, region, capital } = country
 
     return (
@@ -11,9 +10,9 @@ const Cards = ({ country }: CountryProps) => {
 
             <div className='py-10 px-6'>
                 <h1 className='text-lg font-bold mb-4'>{name.common}</h1>
-                <p className='font-semibold mb-1'>Population: <span className='font-medium'>{population}</span></p>
-                <p className='font-semibold mb-1'>Region: <span className='font-medium'>{region}</span></p>
-                <p className='font-semibold pb-2'>Capital: <span className='font-medium'>{capital}</span></p>
+                <p className='font-semibold mb-1'>Population: <span className='font-light'>{population}</span></p>
+                <p className='font-semibold mb-1'>Region: <span className='font-light'>{region}</span></p>
+                <p className='font-semibold pb-2'>Capital: <span className='font-light'>{capital}</span></p>
             </div>
         </div>
     )

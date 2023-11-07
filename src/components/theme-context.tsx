@@ -1,15 +1,5 @@
-import React, { useEffect, useState, createContext, useContext } from 'react'
-
-type Theme = "light" | "dark"
-
-type ThemeContextProviderProps = {
-    children: React.ReactNode
-}
-
-type ThemeContextType = {
-    theme: Theme,
-    toggleTheme: () => void
-} 
+import { useEffect, useState, createContext, useContext } from 'react'
+import { Theme, ThemeContextProviderProps, ThemeContextType } from '../types/models'
 
 const ThemeContext = createContext<ThemeContextType | null>(null)
 
