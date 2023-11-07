@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-filter__btn {
+  @apply relative w-full min-w-[180px] flex justify-between items-center cursor-pointer rounded-md bg-white py-4 px-3 text-left shadow-sm sm:text-sm border;
+}
+
+.custom-filter__options {
+  @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-3 px-3 cursor-pointer text-base shadow-lg ring-black ring-opacity-5 focus:outline-none sm:text-sm;
+}
+
+.card-wrapper {
+  @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 md:w-10/12 grid-cols-1 w-full max-w-[1440px] gap-12;
+}
