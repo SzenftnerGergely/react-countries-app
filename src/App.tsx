@@ -6,7 +6,7 @@ import SelectedCountry from "./components/SelectedCountry"
 function App() {
 
   return (
-    <div className="h-screen flex flex-col items-center bg-[#fafafa] dark:bg-[#202c37]">
+    <div className="h-screen bg-[#fafafa] dark:bg-[#202c37]">
       <Nav />
       <Router>
         <Routes>
