@@ -6,6 +6,7 @@
 @layer base {
   body {
     font-family: 'Nunito Sans', sans-serif;
+    @apply dark:text-white
   }
 }
 .custom-filter__btn {
