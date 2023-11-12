@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import axios from "axios"
 import { BsArrowLeft } from "react-icons/bs"
+import BorderCountries from "./BorderCountries"
 
 type Currency = {
     name: string;
@@ -27,7 +28,8 @@ type Country = {
     };
     languages: {
         [key: string]: string;
-    }
+    };
+    borders: string[]
 };
 
 
@@ -115,7 +117,7 @@ const SelectedCountry = () => {
                                     </div>
 
                                     <div>
-                                        <p>Border Countries:</p>
+                                        <BorderCountries borders={country[0].borders} />
                                     </div>
 
                                 </div>
