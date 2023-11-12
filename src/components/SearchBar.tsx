@@ -22,14 +22,14 @@ const SearchBar = ({setKey, setValue }: CustomFilterProps) => {
     }
 
     return (
-        <div className='relative flex items-center'>
+        <div className='relative flex items-center sm:w-full md:w-1/3'>
             <div className='absolute left-4'>
                 <HiMagnifyingGlass className="dark:text-gray-100" />
             </div>
             <input 
                 type="text" 
                 placeholder='Search for a country...' 
-                className='min-w-[26rem] py-3 px-10 shadow-sm rounded-md 
+                className='w-full sm:min-w-[26rem] py-3 px-10 shadow-sm rounded-md 
                 dark:bg-[#2b3945] dark:text-white' 
                 value={filterValue}
                 onChange={(e) => {

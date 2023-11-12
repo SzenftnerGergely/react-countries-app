@@ -32,30 +32,30 @@ const SelectedCountry = () => {
         <>
             {country ?
                 (
-                    <div className="flex flex-col items-center justify-center">
+                    <div className="flex flex-col items-center justify-center bg-[#fafafa] dark:bg-[#202c37]">
                         <div className="max-w-[1440px] w-10/12">
                             <Link to={"/"}>
                                 <div className="my-16 flex items-center justify-around 
-                        bg-white shadow-md rounded-md dark:text-white 
-                        dark:bg-[#2b3945] max-w-[8rem] py-2 px-6 hover:scale-105
-                        active:scale-100 transition-all"
+                                bg-white shadow-md rounded-md dark:text-white 
+                                dark:bg-[#2b3945] max-w-[8rem] py-2 px-6 hover:scale-105
+                                active:scale-100 transition-all"
                                 >
                                     <BsArrowLeft className="text-lg" />
                                     <span>Back</span>
                                 </div>
                             </Link>
-                            <div className="flex justify-between">
-                                <div className="w-[45%] min-h-[464px] flex items-center">
+                            <div className="xl:flex md:justify-between">
+                                <div className="xl:w-[45%] xl:min-h-[464px] flex items-center">
                                     <img src={country[0].flags.svg} alt={country[0].flags.alt} className=" object-fill"/>
                                 </div>
 
-                                <div className="py-16 flex flex-col justify-between w-[45%]">
+                                <div className="py-16 flex flex-col justify-between lg:w-[45%]">
 
-                                    <h1 className="dark:text-white text-3xl font-bold">{country[0].name.common}</h1>
+                                    <h1 className="dark:text-white text-3xl font-bold mb-10 xl:mb-0">{country[0].name.common}</h1>
 
                                     <div>
-                                        <div className="flex justify-between">
-                                            <div className="flex flex-col">
+                                        <div className="xl:flex xl:justify-between">
+                                            <div className="flex flex-col mb-10 xl:mb-0">
                                                 <p className="font-semibold">Native Name: <span className="font-light">{country[0].name.common}</span></p>
                                                 <p className="font-semibold">Population: <span className="font-light">{formatNumberWithCommas(country[0].population)}</span></p>
                                                 <p className="font-semibold">Region: <span className="font-light">{country[0].region}</span></p>
@@ -74,7 +74,7 @@ const SelectedCountry = () => {
                                                         );
                                                     })}
                                                 </div>
-                                                <div className="font-semibold flex"><p className="mr-1">Languages: </p>
+                                                <div className="font-semibold flex mb-8 md:mb-0"><p className="mr-1">Languages: </p>
                                                     {Object.keys(country[0].languages).map((languageCode, index) => {
                                                         const languageName = country[0].languages[languageCode];
                                                         return (

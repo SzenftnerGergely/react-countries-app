@@ -30,7 +30,8 @@ const Home = () => {
 
   return (
     <div className="flex flex-col items-center bg-[#fafafa] dark:bg-[#202c37]">
-      <div className='max-w-[1440px] w-10/12 flex justify-between my-10 items-center'>
+      <div className='max-w-[1440px] w-10/12 md:flex md:flex-row md:justify-between 
+      md:items-center flex flex-col gap-4 my-10'>
         <SearchBar setValue={setValue} setKey={setKey} />
         <CustomFilter options={options} setValue={setValue} setKey={setKey} />
       </div>

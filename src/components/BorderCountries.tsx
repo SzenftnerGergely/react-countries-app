@@ -31,8 +31,7 @@ const BorderCountries = ({ borders }: CountryProp) => {
 
     return (
         <>
-
-            {borders ? (<div className="flex mt-4">
+            {borders ? (<div className={`${borders.length < 5 ? "xl:flex xl:items-center" : ""} mt-4 w-full`}>
                 <p className="flex items-center mr-2 mb-2 font-semibold">Border Countries:</p>
                 <div className="flex flex-wrap">
                     {borderCountries?.map((country, index) =>
