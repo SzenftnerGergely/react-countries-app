@@ -4,6 +4,11 @@ import { Link } from "react-router-dom"
 import axios from "axios"
 import { BsArrowLeft } from "react-icons/bs"
 
+type Currency = {
+    name: string;
+    symbol: string;
+}
+
 type Country = {
     flags: {
         alt: string;
@@ -15,6 +20,14 @@ type Country = {
     population: number;
     region: string;
     capital: string;
+    subregion: string;
+    tld: string;
+    currencies: {
+        [currencyCode: string]: Currency;
+    };
+    languages: {
+        [key: string]: string;
+    }
 };
 
 
@@ -65,7 +78,7 @@ const SelectedCountry = () => {
                                 <div className="py-16 flex flex-col justify-between">
 
                                     <h1 className="dark:text-white text-3xl font-bold">{country[0].name.common}</h1>
-                                    
+
                                     <div>
                                         <div className="flex justify-between">
                                             <div className="flex flex-col">
@@ -102,7 +115,7 @@ const SelectedCountry = () => {
                                     </div>
 
                                     <div>
-                                     <p>Border Countries:</p>
+                                        <p>Border Countries:</p>
                                     </div>
 
                                 </div>
