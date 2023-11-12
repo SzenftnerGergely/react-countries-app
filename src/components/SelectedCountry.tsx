@@ -5,6 +5,7 @@ import axios from "axios"
 import { BsArrowLeft } from "react-icons/bs"
 import BorderCountries from "./BorderCountries"
 import { Country } from "../types/models"
+import { formatNumberWithCommas } from "../utils/formatNumber"
 
 const SelectedCountry = () => {
     const [country, setCountry] = useState<Country[] | null>(null)
@@ -56,7 +57,7 @@ const SelectedCountry = () => {
                                         <div className="flex justify-between">
                                             <div className="flex flex-col">
                                                 <p className="font-semibold">Native Name: <span className="font-light">{country[0].name.common}</span></p>
-                                                <p className="font-semibold">Population: <span className="font-light">{country[0].population}</span></p>
+                                                <p className="font-semibold">Population: <span className="font-light">{formatNumberWithCommas(country[0].population)}</span></p>
                                                 <p className="font-semibold">Region: <span className="font-light">{country[0].region}</span></p>
                                                 <p className="font-semibold">Sub Region: <span className="font-light">{country[0].subregion}</span></p>
                                                 <p className="font-semibold">Capital: <span className="font-light">{country[0].capital}</span></p>
