@@ -44,3 +44,30 @@ export type ThemeContextType = {
     theme: Theme,
     toggleTheme: () => void
 } 
+
+export type Currency = {
+  name: string;
+  symbol: string;
+}
+
+export type Country = {
+  flags: {
+      alt: string;
+      svg: string;
+  };
+  name: {
+      common: string;
+  };
+  population: number;
+  region: string;
+  capital: string;
+  subregion: string;
+  tld: string;
+  currencies: {
+      [currencyCode: string]: Currency;
+  };
+  languages: {
+      [key: string]: string;
+  };
+  borders: string[]
+};
