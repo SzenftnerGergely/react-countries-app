@@ -1,6 +1,6 @@
-import axios, { AxiosError } from "axios";
 import { useState, useEffect } from "react"
 import { Country } from "../types/models"
+import { fetchData } from "../utils/api";
 
 type CountryProp = {
     borders: string[]
@@ -9,31 +9,20 @@ type CountryProp = {
 const BorderCountries = ({ borders }: CountryProp) => {
     const [borderCountries, setBorderCountries] = useState<Country[] | null>(null)
 
-
     if (borders) {
         const query = borders.join(",")
-        const fetchCountry = async () => {
-            try {
-                await axios
-                    .get(`https://restcountries.com/v3.1/alpha?codes=${query}`)
-                    .then((response) => {
-                        const result = response.data;
-                        setBorderCountries(result)
-                    });
-            } catch (error: unknown) {
-                if (error instanceof AxiosError) {
-                  console.log(error.message);
-                  alert(`Could not load border countries: ${error.message}`);
-                } else {
-                  console.log("An unknown error occurred:", error);
-                  alert("An unknown error occurred");
-                }
-              }
-        }
+        const url = `https://restcountries.com/v3.1/alpha?codes=${query}`
 
-        useEffect(() => {
-            fetchCountry()
-        }, [])
+        const fetchBorderCountries = async () => {
+            const response = await fetchData(url)
+            if (response) {
+                setBorderCountries(response.data)
+            }
+          }
+        
+          useEffect(() => {
+            fetchBorderCountries()
+          }, [])
     }
 
     return (

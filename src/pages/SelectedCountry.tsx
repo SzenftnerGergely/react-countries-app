@@ -1,31 +1,27 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
-import axios from "axios"
 import { BsArrowLeft } from "react-icons/bs"
 import BorderCountries from "../components/BorderCountries"
 import { Country } from "../types/models"
 import { formatNumberWithCommas } from "../utils/formatNumber"
+import { fetchData } from "../utils/api"
 
 const SelectedCountry = () => {
     const [country, setCountry] = useState<Country[] | null>(null)
     const params = useParams()
 
-    const fetchCountry = async (name: string | undefined) => {
-        try {
-            await axios
-                .get(`https://restcountries.com/v3.1/name/${name}`)
-                .then((response) => {
-                    const result = response.data;
-                    setCountry(result)
-                });
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    const url = `https://restcountries.com/v3.1/name/${params.id}`
 
-    useEffect(() => {
-        fetchCountry(params.id)
+    const fetchCountry = async () => {
+        const response = await fetchData(url)
+        if (response) {
+            setCountry(response.data)
+        }
+      }
+    
+      useEffect(() => {
+        fetchCountry()
     }, [params.id])
 
     return (

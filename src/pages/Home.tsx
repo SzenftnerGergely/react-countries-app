@@ -4,34 +4,23 @@ import SearchBar from '../components/SearchBar';
 import CustomFilter from '../components/CustomFilter';
 import Cards from '../components/Cards';
 import { options } from '../constants';
-import axios, { AxiosError } from "axios"
+import { fetchData } from '../utils/api';
 
 const Home = () => {
   const [countries, setCountries] = useState([])
   const [key, setKey] = useState("all")
   const [value, setValue] = useState("")
+  const url = `https://restcountries.com/v3.1/${key}/${value}`
 
-  const fetchAllCountries = async (key: string, value: string) => {
-    try {
-      await axios
-        .get(`https://restcountries.com/v3.1/${key}/${value}`)
-        .then((response) => {
-          const result = response.data;
-          setCountries(result)
-        });
-    } catch (error: unknown) {
-      if (error instanceof AxiosError) {
-        console.log(error.message);
-        alert(`Could not load border countries: ${error.message}`);
-      } else {
-        console.log("An unknown error occurred:", error);
-        alert("An unknown error occurred");
-      }
+  const fetchAllCountries = async () => {
+    const response = await fetchData(url)
+    if (response) {
+      setCountries(response.data)
     }
-  };
+  }
 
   useEffect(() => {
-    fetchAllCountries(key, value)
+    fetchAllCountries()
   }, [key, value])
 
   return (
