@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
-import SearchBar from './SearchBar';
-import CustomFilter from './CustomFilter';
-import Cards from './Cards';
+import SearchBar from '../components/SearchBar';
+import CustomFilter from '../components/CustomFilter';
+import Cards from '../components/Cards';
 import { options } from '../constants';
-import axios from "axios"
+import axios, { AxiosError } from "axios"
 
 const Home = () => {
   const [countries, setCountries] = useState([])
@@ -19,8 +19,14 @@ const Home = () => {
           const result = response.data;
           setCountries(result)
         });
-    } catch (error) {
-      console.log(error);
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        console.log(error.message);
+        alert(`Could not load border countries: ${error.message}`);
+      } else {
+        console.log("An unknown error occurred:", error);
+        alert("An unknown error occurred");
+      }
     }
   };
 

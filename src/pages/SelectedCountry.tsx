@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import axios from "axios"
 import { BsArrowLeft } from "react-icons/bs"
-import BorderCountries from "./BorderCountries"
+import BorderCountries from "../components/BorderCountries"
 import { Country } from "../types/models"
 import { formatNumberWithCommas } from "../utils/formatNumber"
 

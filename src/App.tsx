@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom"
-import Home from "./components/Home"
+import Home from "./pages/Home"
 import Nav from "./components/Nav"
-import SelectedCountry from "./components/SelectedCountry"
+import SelectedCountry from "./pages/SelectedCountry"
 
 function App() {
 

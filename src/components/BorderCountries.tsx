@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useState, useEffect } from "react"
 import { Country } from "../types/models"
 
@@ -8,8 +8,9 @@ type CountryProp = {
 
 const BorderCountries = ({ borders }: CountryProp) => {
     const [borderCountries, setBorderCountries] = useState<Country[] | null>(null)
-    
-    if(borders) {
+
+
+    if (borders) {
         const query = borders.join(",")
         const fetchCountry = async () => {
             try {
@@ -19,11 +20,17 @@ const BorderCountries = ({ borders }: CountryProp) => {
                         const result = response.data;
                         setBorderCountries(result)
                     });
-            } catch (error) {
-                console.log(error);
-            }
-        };
-    
+            } catch (error: unknown) {
+                if (error instanceof AxiosError) {
+                  console.log(error.message);
+                  alert(`Could not load border countries: ${error.message}`);
+                } else {
+                  console.log("An unknown error occurred:", error);
+                  alert("An unknown error occurred");
+                }
+              }
+        }
+
         useEffect(() => {
             fetchCountry()
         }, [])

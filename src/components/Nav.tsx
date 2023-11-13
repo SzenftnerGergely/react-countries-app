@@ -1,5 +1,5 @@
 import { BsMoonFill, BsSun } from "react-icons/bs";
-import { useTheme } from "./theme-context";
+import { useTheme } from "./ThemeContext";
 
 const Nav = () => {
     const { theme, toggleTheme } = useTheme()
