@@ -1,13 +1,8 @@
-import { SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import { SerchbarProps } from '../types/models';
 
-type CustomFilterProps = {
-    setValue: React.Dispatch<SetStateAction<string>>
-    setKey: React.Dispatch<SetStateAction<string>>
-  };
-  
-
-const SearchBar = ({setKey, setValue }: CustomFilterProps) => {
+const SearchBar = ({setKey, setValue }: SerchbarProps) => {
     const [filterValue, setFilterValue] = useState("")
 
     const handleChange = (e:any) => {

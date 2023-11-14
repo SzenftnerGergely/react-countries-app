@@ -71,3 +71,12 @@ export type Country = {
   };
   borders: string[]
 };
+
+export type SerchbarProps = {
+  setValue: React.Dispatch<SetStateAction<string>>
+  setKey: React.Dispatch<SetStateAction<string>>
+};
+
+export type CountryProp = {
+  borders: string[]
+}

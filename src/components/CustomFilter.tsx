@@ -2,12 +2,12 @@ import { Listbox, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import { BsChevronDown } from 'react-icons/bs';
-import { CustomFilterProps } from '../types/models';
+import { CustomFilterProps, OptionProps } from '../types/models';
 
 const CustomFilter = ({ options, setValue, setKey }: CustomFilterProps) => {
     const [selectedCountry, setSelectedCountry] = useState(options[0])
     
-    const handleChange = (e: any) => {
+    const handleChange = (e: OptionProps) => {
         setValue(e.name.toLocaleLowerCase());
         setKey("region")
     }

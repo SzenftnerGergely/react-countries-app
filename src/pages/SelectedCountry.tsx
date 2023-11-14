@@ -22,7 +22,7 @@ const SelectedCountry = () => {
     
       useEffect(() => {
         fetchCountry()
-    }, [params.id])
+    }, [params.id])   
 
     return (
         <>

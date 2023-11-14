@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react"
-import { Country } from "../types/models"
+import { Country, CountryProp } from "../types/models"
 import { fetchData } from "../utils/api";
-
-type CountryProp = {
-    borders: string[]
-}
 
 const BorderCountries = ({ borders }: CountryProp) => {
     const [borderCountries, setBorderCountries] = useState<Country[] | null>(null)
