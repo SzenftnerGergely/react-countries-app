@@ -14,7 +14,7 @@
 }
 
 .custom-filter__options {
-  @apply absolute mt-1 max-h-60 w-full text-sm overflow-auto rounded-md bg-white py-3 px-3 cursor-pointer shadow-lg ring-black ring-opacity-5 focus:outline-none;
+  @apply absolute mt-1 max-h-60 w-full text-sm overflow-auto rounded-md bg-white px-3 pb-3 cursor-pointer shadow-lg ring-black ring-opacity-5 focus:outline-none;
 }
 
 .card-wrapper {

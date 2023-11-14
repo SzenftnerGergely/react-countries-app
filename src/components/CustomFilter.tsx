@@ -6,10 +6,15 @@ import { CustomFilterProps, OptionProps } from '../types/models';
 
 const CustomFilter = ({ options, setValue, setKey }: CustomFilterProps) => {
     const [selectedCountry, setSelectedCountry] = useState(options[0])
-    
+
     const handleChange = (e: OptionProps) => {
         setValue(e.name.toLocaleLowerCase());
-        setKey("region")
+        if (e.name == "Filter by region") {
+            setKey("")
+            setValue("all")
+        } else {
+            setKey("region")
+        }
     }
 
     return (
@@ -25,7 +30,7 @@ const CustomFilter = ({ options, setValue, setKey }: CustomFilterProps) => {
                 >
                     <div className='relative w-fit z-10'>
                         <Listbox.Button className="flex items-center custom-filter__btn">
-                            {selectedCountry.name}
+                            {selectedCountry ? selectedCountry.name : "Select user"}
                             <BsChevronDown className="ml-10" />
                         </Listbox.Button>
                         <Transition
@@ -39,13 +44,14 @@ const CustomFilter = ({ options, setValue, setKey }: CustomFilterProps) => {
                                     <Listbox.Option
                                         key={option.id}
                                         value={option}
+                                        disabled={option.unavailable}
                                         className={({ active }) => `relative cursor-default select-none 
-                                        p-2 ${active ? 'bg-blue-500 text-white dark:bg-blue-500' 
-                                        : 'text-gray-900'}dark:bg-[#2b3945] dark:text-white`}
-                                     >
+                                        p-2 ${active ? 'bg-blue-500 text-white dark:bg-blue-500'
+                                                : 'text-gray-900'}dark:bg-[#2b3945] dark:text-white`}
+                                    >
                                         {({ selected }) => (
                                             <span
-                                                className={`flex truncate ${selected ? 'font-medium' : 'font-normal'}`}
+                                                className={`${option.unavailable ? 'hidden p-0' : ''} flex truncate ${selected ? 'font-medium' : 'font-normal'}`}
                                             >
                                                 {option.name}
                                                 {selected && <CheckIcon className='w-4 h-4' />}

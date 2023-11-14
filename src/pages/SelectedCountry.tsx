@@ -18,7 +18,7 @@ const SelectedCountry = () => {
         if (response) {
             setTimeout(() => {
                 setCountry(response.data)
-            }, 1000)
+            }, 500)
         }
     }
 

@@ -18,6 +18,7 @@ export type OptionProps = {
   id: number;
   name: string;
   title: string;
+  unavailable: boolean
 };
 
 export type CustomFilterProps = {

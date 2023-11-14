@@ -20,7 +20,7 @@ const Home = () => {
       setTimeout(() => {
         setCountries(response.data)
         setIsLoading(false)
-      }, 1000)
+      }, 500)
     }
   }
 

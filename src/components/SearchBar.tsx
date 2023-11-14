@@ -5,7 +5,7 @@ import { SerchbarProps } from '../types/models';
 const SearchBar = ({setKey, setValue }: SerchbarProps) => {
     const [filterValue, setFilterValue] = useState("")
 
-    const handleChange = (e:any) => {
+    const handleChange = (e:{target: {value: string}}) => {
 
         if(e.target.value !== "") {
             setKey("name")
