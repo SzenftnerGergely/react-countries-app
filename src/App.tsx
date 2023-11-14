@@ -6,7 +6,7 @@ import SelectedCountry from "./pages/SelectedCountry"
 function App() {
 
   return (
-    <div className="h-screen bg-[#fafafa] dark:bg-[#202c37]">
+    <div className="h-screen bg-[#fafafa] dark:bg-[#202c37] relative">
       <Nav />
       <Router>
         <Routes>

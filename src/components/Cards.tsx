@@ -8,7 +8,7 @@ const Cards = ({ country }: CountryProps) => {
         <div className='bg-white dark:bg-[#2b3945] dark:text-gray-100 
         shadow-md rounded-md flex flex-col md:mx-auto mx-10'>
 
-            <img src={flags.svg} alt='flag' width={0} height={0} className='w-full h-56 object-cover rounded-t-md' />
+            <img src={flags.svg} alt='flag' className='w-full h-56 object-cover rounded-t-md' />
 
             <div className='py-10 px-6'>
                 <h1 className='text-lg font-bold mb-4'>{name.common}</h1>

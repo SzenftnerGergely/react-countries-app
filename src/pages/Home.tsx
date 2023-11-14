@@ -10,12 +10,17 @@ const Home = () => {
   const [countries, setCountries] = useState([])
   const [key, setKey] = useState("all")
   const [value, setValue] = useState("")
+  const [loading, setIsLoading] = useState(false)
   const url = `https://restcountries.com/v3.1/${key}/${value}`
 
   const fetchAllCountries = async () => {
+    setIsLoading(true)
     const response = await fetchData(url)
     if (response) {
-      setCountries(response.data)
+      setTimeout(() => {
+        setCountries(response.data)
+        setIsLoading(false)
+      }, 1000)
     }
   }
 
@@ -30,13 +35,26 @@ const Home = () => {
         <SearchBar setValue={setValue} setKey={setKey} />
         <CustomFilter options={options} setValue={setValue} setKey={setKey} />
       </div>
-      <div className="card-wrapper" >
-        {countries.map((country: { flags: { svg: string; }; name: { common: string; }; population: number; region: string; capital: string; }, index: number) =>
-          <Link to={`/selected/${country.name.common}`} key={index}>
-            <Cards country={country} key={index} />
-          </Link>
+      {loading ?
+        (
+          <div
+            className="inline-block h-8 w-8 animate-spin rounded-full 
+            border-4 border-solid border-current border-r-transparent 
+            align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]
+            bottom-1/2 left-1/2 absolute"
+            >
+          </div>
+        )
+        :
+        (<div className="card-wrapper" >
+          {countries.map((country: { flags: { svg: string; }; name: { common: string; }; population: number; region: string; capital: string; }, index: number) =>
+            <Link to={`/selected/${country.name.common}`} key={index}>
+              <Cards country={country} key={index} />
+            </Link>
+          )}
+        </div>
         )}
-      </div>
+
     </div>
   )
 }

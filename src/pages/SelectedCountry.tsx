@@ -16,13 +16,15 @@ const SelectedCountry = () => {
     const fetchCountry = async () => {
         const response = await fetchData(url)
         if (response) {
-            setCountry(response.data)
+            setTimeout(() => {
+                setCountry(response.data)
+            }, 1000)
         }
-      }
-    
-      useEffect(() => {
+    }
+
+    useEffect(() => {
         fetchCountry()
-    }, [params.id])   
+    }, [params.id])
 
     return (
         <>
@@ -42,7 +44,7 @@ const SelectedCountry = () => {
                             </Link>
                             <div className="xl:flex md:justify-between">
                                 <div className="xl:w-[45%] xl:min-h-[464px] flex items-center">
-                                    <img src={country[0].flags.svg} alt={country[0].flags.alt} className=" object-fill"/>
+                                    <img src={country[0].flags.svg} alt={country[0].flags.alt} className=" object-fill" />
                                 </div>
 
                                 <div className="py-16 flex flex-col justify-between lg:w-[45%]">
@@ -93,7 +95,14 @@ const SelectedCountry = () => {
                         </div>
                     </div>
                 ) :
-                (<span>Loading</span>)
+                (<div
+                    className="h-8 w-8 animate-spin rounded-full border-4 
+                    border-solid border-current border-r-transparent bottom-1/2 left-1/2
+                    align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]
+                    absolute"
+                >
+                </div>
+                )
             }
         </>
     )
