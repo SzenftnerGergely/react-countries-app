@@ -6,6 +6,7 @@ import BorderCountries from "../components/BorderCountries"
 import { Country } from "../types/models"
 import { formatNumberWithCommas } from "../utils/formatNumber"
 import { fetchData } from "../utils/api"
+import { motion } from "framer-motion"
 
 const SelectedCountry = () => {
     const [country, setCountry] = useState<Country[] | null>(null)
@@ -33,14 +34,20 @@ const SelectedCountry = () => {
                     <div className="flex flex-col items-center justify-center bg-[#fafafa] dark:bg-[#202c37]">
                         <div className="max-w-[1440px] w-10/12">
                             <Link to={"/"}>
-                                <div className="my-16 flex items-center justify-around 
+                                <motion.div className="my-16 flex items-center justify-around 
                                 bg-white shadow-md rounded-md dark:text-white 
                                 dark:bg-[#2b3945] max-w-[8rem] py-2 px-6 hover:scale-105
                                 active:scale-100 transition-all"
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{
+                                    type: "tween",
+                                    duration: 0.2,
+                                }}
                                 >
                                     <BsArrowLeft className="text-lg" />
                                     <span>Back</span>
-                                </div>
+                                </motion.div>
                             </Link>
                             <div className="xl:flex md:justify-between">
                                 <div className="xl:w-[45%] xl:min-h-[464px] flex items-center">
